@@ -10,6 +10,12 @@ export default function RegistrationScreen() {
 
     const signUpHandler = () => {
         Keyboard.dismiss();
+
+        console.log({
+            email,
+            password,
+            login
+        });
     }
 
     const [login, setLogin] = useState("");
@@ -23,9 +29,9 @@ export default function RegistrationScreen() {
             keyboardOffset={75}>
             <KeyboardAvoidingView
                 behavior={Platform.OS == "ios" ? "padding" : "height"}>
-                <Input placeholder="Логін" onChangeText={setLogin} />
-                <Input placeholder="Адреса електронної пошти" onChangeText={setEmail} />
-                <PasswordInput placeholder="Пароль" onChangeText={setPassword}/>
+                <Input placeholder="Логін" onChangeText={setLogin} value={login} />
+                <Input placeholder="Адреса електронної пошти" onChangeText={setEmail} value={email} keyboardType={"email-address"} />
+                <PasswordInput placeholder="Пароль" onChangeText={setPassword} value={password} />
                 <PrimaryButton title="Зареєструватися" style={styles.registerButton} onPress={signUpHandler} />
                 <View style={styles.existsAccountPart}>
                     <Text>Вже є аккаунт? </Text>

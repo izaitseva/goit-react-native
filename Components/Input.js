@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { View, StyleSheet, TextInput } from "react-native";
 
-export default function Input({ placeholder, onChangeText, secureTextEntry }) {
+export default function Input({ placeholder, value, onChangeText, secureTextEntry, keyboardType }) {
     // const [value, setValue] = useState("");
     // const inputHandler = (text) => setValue(text);
 
@@ -11,17 +11,17 @@ export default function Input({ placeholder, onChangeText, secureTextEntry }) {
         setFocused(isFocused);
     }
 
-    const inputRef = useRef();
-
     return (
         <View>
             <TextInput
+                value={value}
                 style={[styles.input, focused ? styles.inputFocused : styles.inputNotFocused]}
                 placeholder={placeholder}
                 secureTextEntry={secureTextEntry}
                 onFocus={() => focusHandler(true)}
                 onBlur={() => setFocused(false)}
-                onChangeText={onChangeText}/>
+                onChangeText={onChangeText}
+                keyboardType={keyboardType}/>
         </View>
     )
 }
