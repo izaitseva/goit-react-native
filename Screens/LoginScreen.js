@@ -1,9 +1,9 @@
 import { StyleSheet, View, Text, KeyboardAvoidingView, Platform, Keyboard  } from "react-native";
-import Input from "../Components/Input";
-import PrimaryButton from "../Components/PrimaryButton";
-import PasswordInput from "../Components/PasswordInput";
-import PressableText from "../Components/PressableText";
-import PrimaryScreen from "./Shared/PrimaryScreen";
+import Input from "../components/Input";
+import PrimaryButton from "../components/PrimaryButton";
+import PasswordInput from "../components/PasswordInput";
+import PressableText from "../components/PressableText";
+import PrimaryScreen from "./shared/PrimaryScreen";
 import { useState } from "react";
 
 export default function LoginScreen() {

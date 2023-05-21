@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, ImageBackground, TouchableWithoutFeedback, Keyboard } from 'react-native'
-import HeaderAvatar from "../../Components/HeaderAvatar";
+import HeaderAvatar from "../../components/HeaderAvatar";
 import { useKeyboardVisible } from '../../hooks/useKeyboardVisible';
 
 export default function PrimaryScreen({ children, title, avatar, keyboardOffset }) {
