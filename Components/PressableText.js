@@ -1,10 +1,10 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 export default function PressableText({title, onPress}) {
     return (
-        <Pressable onPress={onPress}>
+        <TouchableOpacity onPress={onPress} activeOpacity={0.6}>
             <Text style={styles.text}>{title}</Text>
-        </Pressable>
+        </TouchableOpacity>
     )
 }
 

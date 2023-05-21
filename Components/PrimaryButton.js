@@ -1,14 +1,14 @@
-import { View, StyleSheet, Pressable, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 export default function PrimaryButton({style, title, onPress}) {
 
     return (
         <View style={style}>
-            <Pressable style={styles.button} onPress={onPress}>
+            <TouchableOpacity style={styles.button} onPress={onPress} activeOpacity={0.6}>
                 <Text style={styles.title}>
                     {title}
                 </Text>
-            </Pressable>
+            </TouchableOpacity>
         </View>        
     )
 }

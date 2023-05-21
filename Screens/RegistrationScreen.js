@@ -19,13 +19,12 @@ export default function RegistrationScreen() {
     return (
         <PrimaryScreen
             title="Реєстрація"
-            avatar={{}}>
+            avatar={{}}
+            keyboardOffset={75}>
             <KeyboardAvoidingView
                 behavior={Platform.OS == "ios" ? "padding" : "height"}>
                 <Input placeholder="Логін" onChangeText={setLogin} />
-
                 <Input placeholder="Адреса електронної пошти" onChangeText={setEmail} />
-
                 <PasswordInput placeholder="Пароль" onChangeText={setPassword}/>
                 <PrimaryButton title="Зареєструватися" style={styles.registerButton} onPress={signUpHandler} />
                 <View style={styles.existsAccountPart}>
@@ -43,6 +42,7 @@ const styles = StyleSheet.create({
     },
     existsAccountPart: {
         marginTop: 16,
+        marginBottom: 65,
         justifyContent: "center",
         flexDirection: 'row'
     }

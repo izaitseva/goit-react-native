@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, StyleSheet, TextInput, Pressable, Text } from "react-native";
+import { View, StyleSheet, TextInput, Pressable, Text, TouchableOpacity } from "react-native";
 
 export default function PasswordInput({placeholder, onChangeText}) {
     const [isVisible, setIsVisible] = useState(false);
@@ -15,7 +15,7 @@ export default function PasswordInput({placeholder, onChangeText}) {
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
                 onChangeText={onChangeText}/>
-            <Pressable style={styles.showPassBtn} onPress={() => setIsVisible(!isVisible)}>
+            <TouchableOpacity style={styles.showPassBtn} onPress={() => setIsVisible(!isVisible)} activeOpacity={0.6}>
                 <Text style={styles.showPassBtnTitle}>
                     {
                         isVisible ? 
@@ -23,7 +23,7 @@ export default function PasswordInput({placeholder, onChangeText}) {
                         <>Показати</>
                     }
                 </Text>
-            </Pressable>
+            </TouchableOpacity>
         </View>
     )
 }

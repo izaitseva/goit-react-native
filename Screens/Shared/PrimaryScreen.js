@@ -1,7 +1,15 @@
 import { StyleSheet, Text, View, ImageBackground, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import HeaderAvatar from "../../Components/HeaderAvatar";
+import { useKeyboardVisible } from '../../hooks/useKeyboardVisible';
 
-export default function PrimaryScreen({ children, title, avatar, isKeyboardVisible, keyboardOffset }) {
+export default function PrimaryScreen({ children, title, avatar, keyboardOffset }) {
+
+    const isKeyboardVisible = useKeyboardVisible();
+    const containerMarginBottom = {
+        paddingBottom: isKeyboardVisible
+            ? keyboardOffset ?? 0
+            : 0
+    }
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -9,7 +17,7 @@ export default function PrimaryScreen({ children, title, avatar, isKeyboardVisib
                 <ImageBackground
                     style={styles.bgImage}
                     source={require('../../assets/images/photoBg.jpg')}>
-                    <View style={{ ...styles.container }}>
+                    <View style={{ ...styles.container, ...containerMarginBottom }}>
                         {
                             avatar &&
                             <View style={styles.avatarBlock}>
@@ -35,16 +43,14 @@ const styles = StyleSheet.create({
     },
     bgImage: {
         flex: 1,
-        resizeMode: 'cover'
+        resizeMode: 'cover',
+        justifyContent: "flex-end"
     },
-    container: {        
-        width: "100%",
-        height: "70%",
+    container: {
         backgroundColor: "#fff",
-        position: 'absolute',
-        bottom: 0,
         paddingLeft: 16,
         paddingRight: 16,
+        // paddingBottom: 78,
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25
     },
