@@ -6,7 +6,7 @@ import PressableText from "../../components/PressableText";
 import PrimaryScreen from "../shared/PrimaryScreen";
 import { useState } from "react";
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -20,6 +20,10 @@ export default function LoginScreen() {
         });
     }
 
+    const goToRegisterScreen = () => {
+        navigation.navigate("Registration");
+    }
+
     return (
         <PrimaryScreen title="Увійти" keyboardOffset={35}>
             <KeyboardAvoidingView
@@ -29,7 +33,7 @@ export default function LoginScreen() {
                 <PrimaryButton title="Увійти" style={styles.signInBtn} onPress={onSignIn} />
                 <View style={styles.notExistAccountPart}>
                     <Text>Немає аккаунту? </Text>
-                    <PressableText title="Зареєструватися" />
+                    <PressableText title="Зареєструватися" onPress={goToRegisterScreen}/>
                 </View>
             </KeyboardAvoidingView>
         </PrimaryScreen>

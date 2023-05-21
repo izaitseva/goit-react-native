@@ -1,12 +1,12 @@
 import { StyleSheet, View, Text, KeyboardAvoidingView, Platform, Keyboard } from "react-native";
-import Input from "../components/Input";
-import PrimaryButton from "../components/PrimaryButton";
-import PasswordInput from "../components/PasswordInput";
-import PressableText from "../components/PressableText";
-import PrimaryScreen from "./shared/PrimaryScreen";
+import Input from "../../components/Input";
+import PrimaryButton from "../../components/PrimaryButton";
+import PasswordInput from "../../components/PasswordInput";
+import PressableText from "../../components/PressableText";
+import PrimaryScreen from "../shared/PrimaryScreen";
 import { useState } from "react";
 
-export default function RegistrationScreen() {
+export default function RegistrationScreen({navigation}) {
 
     const signUpHandler = () => {
         Keyboard.dismiss();
@@ -16,6 +16,10 @@ export default function RegistrationScreen() {
             password,
             login
         });
+    }
+
+    const goToLoginScreen = () => {
+        navigation.navigate("Login");
     }
 
     const [login, setLogin] = useState("");
@@ -35,7 +39,7 @@ export default function RegistrationScreen() {
                 <PrimaryButton title="Зареєструватися" style={styles.registerButton} onPress={signUpHandler} />
                 <View style={styles.existsAccountPart}>
                     <Text>Вже є аккаунт? </Text>
-                    <PressableText title="Увійти" />
+                    <PressableText title="Увійти" onPress={goToLoginScreen}/>
                 </View>
             </KeyboardAvoidingView>
         </PrimaryScreen>
